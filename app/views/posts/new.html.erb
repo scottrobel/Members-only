@@ -1,0 +1,10 @@
+<% unless  @post.errors.full_messages.empty? %>
+  <%= render 'layouts/post_errors'%>
+<% end %>
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit :submit %>
+<% end %>
