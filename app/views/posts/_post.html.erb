@@ -1,9 +1,9 @@
-<li class = "post-container">
+<li class = "post">
   <div>
     <% if logged_in? %>
       <%= link_to "#{post.user.username}", current_user == post.user ? profile_path : user_path(post.user)%>
     <% else %>
-      <div>You must <%= link_to 'login', login_path %> To view who posted this!</div>
+      <div>author: You must <%= link_to 'login', login_path %> To view who posted this!</div>
     <% end %>
     <p><%= post.title%><p>
     <p><%= post.body%></p>

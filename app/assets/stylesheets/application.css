@@ -13,10 +13,9 @@
  *= require_tree .
  *= require_self
  */
- 
-
 body{
   margin: 0;
+  background-image: url("checkerboard-cross.png");
 }
 .topnav{
   display: flex;
@@ -47,4 +46,31 @@ body{
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   padding: 20px;
+  background-color: white;
+  width: 100%;
+}
+.posts-container{
+  list-style-type: none;
+  width: 60%;
+  margin: 0 auto;
+}
+.post{
+  padding: 15pt;
+  background-color: white;
+  box-shadow: slategray 10px 10px;
+  margin: 0 0 10px 0;
+  background-image: "memphis-mini.png";
+  margin: 25pt 0;
+}
+p{
+}
+.center-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-container > *{
+  display: block;
+  width: 30%;
 }

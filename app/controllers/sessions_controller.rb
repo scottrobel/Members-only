@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   include ApplicationHelper
   before_action :not_signed_in, except: [:destroy, :show]
+  before_action :is_logged_in, only: [:destroy, :show]
   def new
     @user = User.new
   end
@@ -34,6 +35,12 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def is_logged_in
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
 
   def not_signed_in
     if logged_in?

@@ -1,11 +1,15 @@
-<%= form_for :session, url: login_path, class: 'form-group' do |f| %>
-  <div class = "form-group">
-    <%= f.label 'email', class: 'form-control' %>
-    <%= f.text_field :username %>
+<div class="center-container">
+  <div class="container-fluid">
+    <%= form_for :session, url: login_path, class: 'form-group' do |f| %>
+      <div class = "form-group">
+        <%= f.label 'email', class: 'form-control' %>
+        <%= f.text_field :username %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :password, class: 'form-control' %>
+        <%= f.password_field :password %>
+      </div>
+        <%= f.submit :login, class: 'btn btn-primary' %>
+    <% end %>
   </div>
-  <div class = "form-group">
-    <%= f.label :password, class: 'form-control' %>
-    <%= f.password_field :password %>
-  </div>
-  <%= f.submit :login, class: 'btn btn-primary' %>
-<% end %>
+</div>
