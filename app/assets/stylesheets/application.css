@@ -67,6 +67,7 @@ body{
   margin: 0 0 10px 0;
   background-image: "memphis-mini.png";
   margin: 25pt 0;
+  word-wrap: break-word;
 }
 .center-container{
   height: 100%;
