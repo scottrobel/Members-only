@@ -3,6 +3,7 @@
 <% end %>
 <div class="form-container">
   <%= form_for :session, url: login_path, class: 'form-group' do |f| %>
+    <div class="form-title">Log In</div>
     <div class = "form-group">
       <%= f.label 'email', class: 'form-control' %>
       <%= f.text_field :email %>
@@ -12,6 +13,6 @@
       <%= f.password_field :password %>
     </div>
       <div class="white-text">Don't have an account? <%= link_to 'Sign Up', signup_path, id: 'login-signup-link'%></div>
-    <%= f.submit :login, class: 'btn btn-primary' %>
+    <%= f.submit "Log In", class: 'btn btn-primary' %>
   <% end %>
 </div>

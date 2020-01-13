@@ -152,3 +152,9 @@ textarea{
   color: white;
   font-weight: bolder;
 }
+.form-title{
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
