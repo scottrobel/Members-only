@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 
   def signed_in
     unless logged_in?
+      flash[:error] = "you must be signed in to see that page!"
       redirect_to login_path
     end
   end

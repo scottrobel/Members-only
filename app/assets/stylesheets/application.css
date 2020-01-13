@@ -23,15 +23,18 @@ body{
   position: sticky;
   top: 0;
 }
+a{
+  text-decoration: none;
+  color: white;
+}
 .topnav > a{
   flex-direction: row;
   text-align: center;
-  text-decoration: none;
   font-family: 'Francois One', sans-serif;
-  color: #F4F7BE;
   padding: 15px 20px;
 }
-.topnav > a:hover{
+.topnav > a:hover,
+.active{
   background-color: #F4F7BE;
   color: #30BCED;
 }
@@ -56,13 +59,12 @@ body{
 }
 .post{
   padding: 15pt;
-  background-color: white;
+  background-color: #30BCED;
+  color: white;
   box-shadow: slategray 10px 10px;
   margin: 0 0 10px 0;
   background-image: "memphis-mini.png";
   margin: 25pt 0;
-}
-p{
 }
 .center-container{
   height: 100%;
@@ -73,4 +75,71 @@ p{
 .center-container > *{
   display: block;
   width: 30%;
+}
+form{
+  width: 300px;
+  padding: 10px 10px;
+  background-color: #30BCED;
+  border-radius: 5px;
+  margin: 0;
+}
+form, .form-group{
+  display: flex;
+  flex-direction: column;
+}
+label{
+  margin-top: 5px;
+  color:white;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+textarea{
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: white;
+  color: #30BCED;
+  width: 100%;
+}
+::placeholder{
+  color: white;
+}
+input[type=submit]{
+  margin-top: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  color: #30BCED;
+  border: none;
+  border-radius: 5px;
+}
+textarea{
+  height: 100px;
+}
+.author{
+  font-weight: bold;
+}
+.top-message,
+.flash-success{
+  margin-top: 0;
+  padding: 20px 0px;
+  background-color: white;
+  text-align: center;
+  color:#30BCED;
+  border-bottom: 2px solid #30BCED;
+}
+.form-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6%;
+}
+.error{
+  padding: 5px 0px;
+  background-color:red;
+  text-align: center;
+  color:white;
 }

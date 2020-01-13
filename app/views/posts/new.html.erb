@@ -1,6 +1,7 @@
 <% unless  @post.errors.full_messages.empty? %>
-  <%= render 'layouts/post_errors'%>
+  <%= render partial: 'layouts/errors', :locals => {:errors => @post.errors.full_messages}%>
 <% end %>
+<div class="form-container">
 <%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>

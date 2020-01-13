@@ -14,10 +14,11 @@ class SessionsController < ApplicationController
         flash[:success] = 'You are now Logged in'
         redirect_to profile_path
       else
-        flash.now[:alert] = 'Invalid passord.'
+        @error = 'Invalid passord.'
+        render :new
       end
     else
-      flash.now[:alert] = 'That email is not registered with us.'
+      @error = 'That email is not registered with us.'
       render :new
     end
   end
@@ -38,6 +39,7 @@ class SessionsController < ApplicationController
 
   def is_logged_in
     unless logged_in?
+      flash[:error] = "you must be signed in to see that page!"
       redirect_to login_path
     end
   end

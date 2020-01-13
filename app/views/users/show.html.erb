@@ -1,4 +1,4 @@
-<h1><%= "#{@user.username}  (#{@user.posts.count} posts)" %></h1>
-<ul>
+<h1 class="top-message"><%= "#{@user.username}  (#{@user.posts.count} posts)" %></h1>
+<ul class="posts-container">
   <%= render @user.posts%>
 </ul>
