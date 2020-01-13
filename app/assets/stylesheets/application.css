@@ -105,6 +105,7 @@ textarea{
   background-color: white;
   color: #30BCED;
   width: 100%;
+  resize: none;
 }
 ::placeholder{
   color: white;
