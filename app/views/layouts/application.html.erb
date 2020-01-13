@@ -8,12 +8,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <% if logged_in? %>
-  <%= render 'layouts/logged_in_nav' %>
-  <% else %>
-  <%= render 'layouts/logged_out_nav'%>
-  <% end %>
   <body>
+    <%= render 'layouts/top_bar'%>
     <%= render 'layouts/flash'%>
     <%= yield %>
   </body>

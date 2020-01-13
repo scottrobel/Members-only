@@ -1,9 +1,6 @@
-<div class="logo-row">
-  <%= link_to 'MEMBERS ONLY', profile_path, id: 'logo'%>
-</div>
 <div class="topnav">
-      <%= link_to 'Logout', logout_path, method: 'delete', 'class' => nav_link_class(logout_path) %>
-      <%= link_to 'Profile', profile_path, 'class' => nav_link_class(profile_path) %>
-      <%= link_to 'Create Post', new_post_path, 'class' => nav_link_class(new_post_path)%>
-      <%= link_to 'All Posts', posts_path, 'class' => nav_link_class(posts_path) %>
+      <%= link_to 'Logout', logout_path, method: 'delete', 'id' => navbar_link_class(logout_path) %>
+      <%= link_to 'Profile', profile_path, 'id' => navbar_link_class(profile_path) %>
+      <%= link_to 'Create Post', new_post_path, 'id' => navbar_link_class(new_post_path)%>
+      <%= link_to 'All Posts', posts_path, 'id' => navbar_link_class(posts_path) %>
 </div>

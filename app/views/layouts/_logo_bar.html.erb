@@ -1,0 +1,7 @@
+<div class="logo-row">
+  <% if logged_in? %>
+    <%= link_to 'MEMBERS ONLY', profile_path, id: 'logo'%>
+  <% else %>
+    <%= link_to 'MEMBERS ONLY', posts_path, id: 'logo'%>
+  <% end %>
+</div>

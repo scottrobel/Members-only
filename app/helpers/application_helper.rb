@@ -13,8 +13,8 @@ module ApplicationHelper
     current_user
   end
 
-  def nav_link_class(link_helper)
-    if current_page?(link_helper)
+  def navbar_link_class(link_helper)
+    if request.fullpath == link_helper
       'active'
     else
       ''

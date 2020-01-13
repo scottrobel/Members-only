@@ -11,6 +11,7 @@
       <%= f.label :password, class: 'form-control' %>
       <%= f.password_field :password %>
     </div>
-      <%= f.submit :login, class: 'btn btn-primary' %>
+      <div class="white-text">Don't have an account? <%= link_to 'Sign Up', signup_path, id: 'login-signup-link'%></div>
+    <%= f.submit :login, class: 'btn btn-primary' %>
   <% end %>
 </div>

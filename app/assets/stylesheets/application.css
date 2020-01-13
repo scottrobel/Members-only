@@ -23,18 +23,20 @@ body{
   position: sticky;
   top: 0;
 }
-a{
-  text-decoration: none;
-  color: white;
-}
 .topnav > a{
   flex-direction: row;
   text-align: center;
   font-family: 'Francois One', sans-serif;
   padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+}
+.bold-link{
+  text-decoration: none;
+  color: white;
 }
 .topnav > a:hover,
-.active{
+#active{
   background-color: #F4F7BE;
   color: #30BCED;
 }
@@ -120,6 +122,8 @@ textarea{
 }
 .author{
   font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
 .top-message,
 .flash-success{
@@ -142,4 +146,9 @@ textarea{
   background-color:red;
   text-align: center;
   color:white;
+}
+#login-signup-link{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
 }
