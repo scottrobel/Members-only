@@ -37,7 +37,7 @@ body{
 }
 .topnav > a:hover,
 #active{
-  background-color: #F4F7BE;
+  background-color: white;
   color: #30BCED;
 }
 .logo-row{
