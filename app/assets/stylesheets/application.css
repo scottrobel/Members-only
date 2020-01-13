@@ -15,7 +15,7 @@
  */
 body{
   margin: 0;
-  background-image: url("checkerboard-cross.png");
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/repeated-square.png");
 }
 .topnav{
   display: flex;
