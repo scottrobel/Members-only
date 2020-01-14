@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  before_action :signed_in, only: [:create, :new, :show]
+  before_action :require_login, only: [:create, :new, :show]
   def new
     @post = Post.new
   end
@@ -28,12 +28,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
-  end
-
-  def signed_in
-    unless logged_in?
-      flash[:error] = "you must be signed in to see that page!"
-      redirect_to login_path
-    end
   end
 end

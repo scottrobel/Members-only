@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   include ApplicationHelper
-  before_action :not_signed_in, except: [:destroy, :show]
-  before_action :is_logged_in, only: [:destroy, :show]
+  before_action :require_logout, except: [:destroy, :show]
+  before_action :require_login, only: [:destroy, :show]
   def new
     @user = User.new
   end
@@ -33,20 +33,5 @@ class SessionsController < ApplicationController
   def show
     @user = User.find_by(id: session[:user_id])
     render 'users/show'
-  end
-
-  private
-
-  def is_logged_in
-    unless logged_in?
-      flash[:error] = "you must be signed in to see that page!"
-      redirect_to login_path
-    end
-  end
-
-  def not_signed_in
-    if logged_in?
-      redirect_to current_user
-    end
   end
 end

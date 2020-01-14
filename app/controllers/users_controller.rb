@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  before_action :not_signed_in, only: [:new, :create]
-  before_action :signed_in, only: [:show]
+  before_action :require_logout, only: [:new, :create]
+  before_action :require_login, only: [:show]
   def show
     @user = User.find_by(id: params[:id])
     unless @user
@@ -28,17 +28,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :username, :password, :password_confirmation)
-  end
-
-  def not_signed_in
-    if logged_in?
-      redirect_to current_user
-    end
-  end
-
-  def signed_in
-    unless logged_in?
-      redirect_to posts_path
-    end
   end
 end
