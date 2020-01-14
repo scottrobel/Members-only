@@ -1,9 +1,19 @@
 require 'action_view'
 require 'action_view/helpers'
 module ApplicationHelper
+
+  private
+
   include ActionView::Helpers::DateHelper
   def current_user
-    User.find_by(id: session[:user_id])
+    if @current_user ||= User.find_by(id: session[:user_id])
+      @current_user
+    elsif (user_id = cookies.signed[:user_id]) && (remembered_token = cookies[:remember_token])
+      if (remembered_user = User.find_by(id: user_id)) && (remembered_user.check_token(remembered_token))
+        session[:user_id] = user_id
+        @current_user = remembered_user
+      end
+    end 
   end
 
   def require_login
@@ -31,5 +41,28 @@ module ApplicationHelper
       flash[:error] = "You are already logged in!"
       redirect_to profile_path
     end
+  end
+
+  def login_as(user, remember_boolean = false)
+    session[:user_id] = user.id
+    remember_user(user) if remember_boolean
+  end
+
+  def remember_user(user)
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.new_token
+  end
+
+  def forget_user
+    session.delete(:user_id)
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+    @user = nil
+  end
+
+  def logout
+    forget_user
+    session.delete(:user_id)
+    @current_user = nil
   end
 end

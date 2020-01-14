@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  include ApplicationHelper
   before_action :require_login, only: [:create, :new, :show]
   def new
     @post = Post.new

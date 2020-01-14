@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include ApplicationHelper
   before_action :require_logout, except: [:destroy, :show]
   before_action :require_login, only: [:destroy, :show]
   def new
@@ -10,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user
       if @user.authenticate(params[:session][:password])
-        session[:user_id] = @user.id
+        login_as(@user, true)
         flash[:success] = 'You are now Logged in'
         redirect_to profile_path
       else
@@ -24,8 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    @user = nil
+    forget_user
     flash[:success] = 'Logged out'
     redirect_to login_path
   end

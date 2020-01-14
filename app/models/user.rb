@@ -7,4 +7,15 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "not valid" }, uniqueness: true, allow_blank: true
   has_secure_password
+
+  def new_token
+    token = SecureRandom.urlsafe_base64
+    remember_digest = Digest::SHA1.hexdigest(token)
+    update_attribute(:remember_digest,  remember_digest)
+    token
+  end
+
+  def check_token(token)
+    Digest::SHA1.hexdigest(token) == remember_digest
+  end
 end
