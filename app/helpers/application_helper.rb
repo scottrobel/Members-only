@@ -1,4 +1,7 @@
+require 'action_view'
+require 'action_view/helpers'
 module ApplicationHelper
+  include ActionView::Helpers::DateHelper
   def current_user
     User.find_by(id: session[:user_id])
   end

@@ -1,14 +1,16 @@
 <li class = "post">
   <div>
-    <% if logged_in? %>
+    <div><% if logged_in? %>
       <% if current_user == post.user %>
-        <%= link_to "author: #{post.user.username}", profile_path, class: 'author' %>
+        author: <%= link_to "#{post.user.username}", profile_path, class: 'author' %>
       <% else %>
-        <%= link_to "author: #{post.user.username}",user_path(post.user), class: 'author' %>
+        author: <%= link_to "#{post.user.username}",user_path(post.user), class: 'author' %>
       <% end %>
     <% else %>
-      <div>author: You must <%= link_to 'login', login_path, class: 'author' %> To view who posted this!</div>
+      author: You must <%= link_to 'login', login_path, class: 'author' %> To view who posted this!
     <% end %>
+    <div class="time-ago"><%= time_ago_in_words(post.created_at)%></div>
+    </div>
     <p><%= post.title%><p>
     <p><%= post.body%></p>
   </div>

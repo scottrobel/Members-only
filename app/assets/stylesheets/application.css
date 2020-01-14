@@ -159,3 +159,6 @@ textarea{
   color: white;
   font-weight: bold;
 }
+.time-ago{
+  float: right;
+}
