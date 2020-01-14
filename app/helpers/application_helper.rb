@@ -45,6 +45,7 @@ module ApplicationHelper
 
   def login_as(user, remember_boolean = false)
     session[:user_id] = user.id
+    @current_user = user
     remember_user(user) if remember_boolean
   end
 
