@@ -1,7 +1,11 @@
 <li class = "post">
   <div>
     <% if logged_in? %>
-      <%= link_to "author: #{post.user.username}", current_user == post.user ? profile_path : user_path(post.user), class: 'author'%>
+      <%= if current_user == post.user %>
+        <%= link_to "author: #{post.user.username}", profile_path, class: 'author' %>
+      <% else %>
+        <%= link_to "author: #{post.user.username}",user_path(post.user), class: 'author'
+      <% end %>
     <% else %>
       <div>author: You must <%= link_to 'login', login_path, class: 'author' %> To view who posted this!</div>
     <% end %>

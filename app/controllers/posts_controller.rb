@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    redirect_to posts_path unless @post
   end
 
   def index
