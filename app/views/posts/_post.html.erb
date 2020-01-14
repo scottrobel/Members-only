@@ -9,7 +9,7 @@
     <% else %>
       author: You must <%= link_to 'login', login_path, class: 'author' %> To view who posted this!
     <% end %>
-    <div class="time-ago"><%= time_ago_in_words(post.created_at)%></div>
+    <div class="time-ago"><%= time_ago_in_words(post.created_at)%> ago</div>
     </div>
     <p><%= post.title%><p>
     <p><%= post.body%></p>
