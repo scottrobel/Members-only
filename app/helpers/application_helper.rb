@@ -66,4 +66,11 @@ module ApplicationHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def require_own_post
+    unless Post.find_by(id: params[:id]).user == current_user
+      flash[:error] = "that is not your post"
+      redirect_to posts_path
+    end
+  end
 end

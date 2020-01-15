@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   before_action :require_login, only: [:create, :new, :show]
+  before_action :require_own_post, only: [:destroy, :edit, :update]
   def new
     @post = Post.new
+  end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
   end
 
   def create
@@ -11,6 +16,27 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       render :new
+    end
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    if @post
+      @post.update(post_params)
+      flash[:error] = "Post updated"
+      redirect_to @post
+    else
+      flash[:error] = "That post does not exist"
+      redirect_to posts_path
+    end
+  end
+
+  def destroy
+    post = Post.find_by(id: params[:id])
+    if post
+      post.destroy
+      flash[:success] = "Post Deleted!"
+      redirect_to profile_path
     end
   end
 

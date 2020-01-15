@@ -2,12 +2,14 @@
   <div>
     <div><% if logged_in? %>
       <% if current_user == post.user %>
-        author: <%= link_to "#{post.user.username}", profile_path, class: 'author' %>
+        author: <%= link_to "#{post.user.username}", profile_path, class: 'post-link' %>
+                <%= link_to "delete post", post_path(post), method: :delete, class: 'post-link' %>
+                <%= link_to "edit post", edit_post_path(post), class: 'post-link'%>
       <% else %>
-        author: <%= link_to "#{post.user.username}",user_path(post.user), class: 'author' %>
+        author: <%= link_to "#{post.user.username}",user_path(post.user), class: 'post-link' %>
       <% end %>
     <% else %>
-      author: You must <%= link_to 'login', login_path, class: 'author' %> To view who posted this!
+      author: You must <%= link_to 'login', login_path, class: 'post-link' %> To view who posted this!
     <% end %>
     <div class="time-ago"><%= time_ago_in_words(post.created_at)%> ago</div>
     </div>

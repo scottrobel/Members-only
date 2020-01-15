@@ -121,10 +121,11 @@ input[type=submit]{
 textarea{
   height: 100px;
 }
-.author{
+.post-link{
   font-weight: bold;
   text-decoration: none;
   color: white;
+  margin-left: 5px;
 }
 .top-message,
 .flash-success{
